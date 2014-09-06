@@ -33,7 +33,7 @@ on early-boot
 
 on init
     export PATH /sbin:/vendor/bin:/system/sbin:/system/bin:/system/xbin
-    export LD_LIBRARY_PATH /vendor/lib:/system/lib
+    export VENDOR_LIB_PATH /vendor/lib:/system/lib
 
     mkdir /synthesis
     mount tmpfs tmpfs /synthesis nosuid nodev

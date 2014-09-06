@@ -13,7 +13,7 @@ for FILE in `cat proprietary-files.txt | grep -v ^# | grep -v ^$`; do
     fi
     adb pull /system/$FILE $BASE/$FILE.orig
 
-    sed -e 's#/system/bin/linker#/vendor/bin/linker#g' $BASE/$FILE.orig > $BASE/$FILE
+    sed -e 's#/system/bin/linker#/vendor/bin/linker#g; s#LD_LIBRARY_PATH#VENDOR_LIB_PATH#g' $BASE/$FILE.orig > $BASE/$FILE
     touch -r $BASE/$FILE.orig $BASE/$FILE
     rm $BASE/$FILE.orig
 done
